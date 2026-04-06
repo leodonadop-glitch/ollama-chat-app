@@ -1,22 +1,14 @@
 {
-  "name": "ollama-chat-app",
-  "version": "1.0.0",
   "buildCommand": "npm install",
-  "framework": "nodejs",
   "outputDirectory": "public",
   "public": true,
   "env": {
-    "PORT": "3000",
     "BACKEND": "ollama",
-    "OLLAMA_API": "@ollama_api",
-    "LM_STUDIO_API": "@lm_studio_api",
-    "MODEL": "llama2",
-    "DATABASE_URL": "@database_url"
+    "MODEL": "llama2"
   },
-  "functions": {
-    "server.js": {
-      "memory": 1024,
-      "maxDuration": 60
+  "git": {
+    "deploymentEnabled": {
+      "main": true
     }
   }
 }
