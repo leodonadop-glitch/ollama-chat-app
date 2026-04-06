@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LD IA Model - IA Local</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>🤖 LD IA Model</h1>
+      </div>
+
+      <!-- Selector de backend -->
+      <div class="backend-selector">
+        <label for="backendSelect">Backend:</label>
+        <select id="backendSelect">
+          <option value="ollama">🦙 Ollama</option>
+          <option value="lm-studio">🎯 LM Studio</option>
+        </select>
+      </div>
+
+      <!-- Selector de modelo -->
+      <div class="model-selector">
+        <label for="modelSelect">Modelo:</label>
+        <select id="modelSelect">
+          <option value="">Cargando modelos...</option>
+        </select>
+      </div>
+
+      <!-- Selector de tema -->
+      <div class="theme-selector">
+        <label for="themeSelect">Tema:</label>
+        <select id="themeSelect">
+          <option value="dark">🌙 Oscuro</option>
+          <option value="light">☀️ Claro</option>
+          <option value="auto">🔄 Auto</option>
+        </select>
+      </div>
+
+      <!-- Botones de control -->
+      <div class="control-buttons">
+        <button id="newChatBtn" class="btn btn-primary">+ Nueva conversación</button>
+        <button id="saveFavBtn" class="btn btn-secondary">⭐ Guardar favorito</button>
+        <button id="exportBtn" class="btn btn-secondary">📥 Exportar</button>
+      </div>
+
+      <!-- Prompts favoritos -->
+      <div class="favorites-section">
+        <h3>⭐ Favoritos</h3>
+        <div id="favoritesList" class="favorites-list">
+          <p class="empty-state">Aún no tienes prompts guardados</p>
+        </div>
+      </div>
+
+      <!-- Historial -->
+      <div class="history-section">
+        <h3>📋 Historial</h3>
+        <div id="historyList" class="history-list">
+          <p class="empty-state">Historial vacío</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <h2 id="chatTitle">Nueva conversación</h2>
+        <div class="header-buttons">
+          <button id="clearContextBtn" class="btn-icon" title="Limpiar contexto de memoria">🧠</button>
+          <button id="clearHistoryBtn" class="btn-icon" title="Limpiar historial">🗑️</button>
+        </div>
+      </header>
+
+      <!-- Chat Area -->
+      <div class="chat-area">
+        <div id="chatMessages" class="messages">
+          <div class="message welcome">
+            <h3>Bienvenido a LD IA Model</h3>
+            <p>Ingresa un prompt y obtén respuestas de IA local. Los datos nunca salen de tu computadora.</p>
+            <ul>
+              <li>✅ Privado - Ejecutándose localmente</li>
+              <li>✅ Gratuito - Sin cuotas API</li>
+              <li>✅ Offline - No requiere internet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-area">
+        <div class="image-section" id="imageSection" style="display: none;">
+          <img id="imagePreview" class="image-preview" alt="Imagen cargada">
+          <button id="removeImageBtn" class="btn-small">✕ Remover imagen</button>
+        </div>
+        <div class="input-container">
+          <div class="input-toolbar">
+            <label for="imageInput" class="btn-icon-label" title="Cargar imagen">🖼️</label>
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+          </div>
+          <textarea
+            id="promptInput"
+            class="prompt-input"
+            placeholder="Escribe tu prompt aquí... (Shift+Enter para enviar)"
+            rows="3"
+          ></textarea>
+          <button id="sendBtn" class="btn-send" title="Enviar (Ctrl+Enter)">➤ Enviar</button>
+        </div>
+        <div class="loading" id="loading" style="display: none;">
+          <span class="spinner"></span>
+          <span>Pensando...</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
